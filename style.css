@@ -1,0 +1,425 @@
+/* style.css — style global du Musée */
+:root{
+  --accent:#5b6cff;
+  --muted:#6b6b6b;
+  --bg:#fbfaf8;
+  --card:#ffffff;
+}
+
+/* style.css — archaeological / museum theme */
+:root{
+  /* earthy palette */
+  --accent: #8b5e3c; /* warm ochre */
+  --accent-dark: #6d462b;
+  --muted: #6b5a4a;
+  --bg: #f6efe6; /* parchment-like */
+  --card: #fff8f0;
+  --stone: #d6c6b3;
+  --shadow: rgba(30,20,10,0.12);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Georgia, 'Merriweather', 'Times New Roman', serif;
+  background-color:var(--bg);
+  color:#2b2b2b;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  /* subtle paper texture */
+  background-image: linear-gradient(180deg, rgba(0,0,0,0.02) 0.5px, transparent 0.5px),
+                    linear-gradient(90deg, rgba(0,0,0,0.01) 0.5px, transparent 0.5px);
+  background-size: 100% 24px, 24px 100%;
+}
+
+/* Top / header */
+.topbar{
+  background: linear-gradient(180deg, rgba(139,94,60,0.06), rgba(139,94,60,0.03));
+  padding:20px 28px;
+  border-bottom:4px solid rgba(139,94,60,0.08);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+.topbar h1{margin:8px 0 0 0; font-size:1.6rem; letter-spacing:0.6px}
+.topnav{margin-top:10px}
+.topnav a{
+  color:var(--accent-dark);
+  margin-right:14px;
+  text-decoration:none;
+  font-weight:700;
+  background:transparent;
+}
+.topnav a:hover{color:var(--accent)}
+
+/* Hero / showcase */
+.hero{
+  /* fallback color if no image */
+  background-color: #efe3d4;
+  background-size: cover;
+  background-position: center;
+  padding:48px 20px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.hero .hero-content{
+  background: linear-gradient(180deg, rgba(255,250,244,0.95), rgba(255,250,244,0.9));
+  padding:24px 28px;
+  border-radius:8px;
+  max-width:1000px;
+  text-align:center;
+  border:1px solid var(--stone);
+  box-shadow: 0 10px 30px var(--shadow);
+}
+.hero h2{font-family: 'Merriweather', Georgia, serif; font-size:2rem; margin:0 0 8px 0}
+.hero p{margin:0 0 10px 0; color:var(--muted)}
+
+/* Collection navigation */
+.collection-nav {
+  margin-top: 20px;
+}
+
+.collection-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.collection-nav a {
+  color: var(--accent-dark);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.collection-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.collection-nav a:hover {
+  background: rgba(139,94,60,0.1);
+}
+
+.collection-nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.collection-nav a.active {
+  background: var(--accent);
+  color: white;
+  font-weight: 500;
+}
+
+.collection-nav a.active::after {
+  transform: scaleX(1);
+  background: white;
+}
+
+/* Call to action buttons styled like aged tags */
+.hero .hero-buttons button{
+  background:linear-gradient(180deg,var(--card), #f1e6dc);
+  border:1px solid rgba(0,0,0,0.06);
+  color:var(--accent-dark);
+  padding:10px 16px;
+  margin:6px;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:700;
+}
+.hero .hero-buttons button:hover{transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+
+/* Section cards */
+.three-cols{
+  display:flex;
+  gap:20px;
+  padding:28px;
+}
+.three-cols .col{
+  flex:1;
+  background:var(--card);
+  padding:18px;
+  border-radius:8px;
+  border:1px solid var(--stone);
+  box-shadow: 0 8px 24px rgba(40,30,20,0.04);
+}
+.three-cols .col h3{font-family: 'Merriweather', Georgia, serif; color:var(--accent-dark); margin-top:0}
+
+/* Staff / people */
+.staff-container{max-width:1100px;margin:32px auto;padding:0 18px;}
+.staff-row{
+  display:flex;
+  gap:22px;
+  align-items:center;
+  margin:28px 0;
+  padding:16px;
+  background: linear-gradient(180deg, rgba(255,250,244,0.98), rgba(255,250,244,0.96));
+  border-radius:8px;
+  border:1px solid rgba(0,0,0,0.03);
+}
+.staff-row.alt{flex-direction:row-reverse}
+.staff-photo{width:320px;max-width:40%;border-radius:6px; box-shadow:0 12px 30px rgba(20,15,10,0.08); object-fit:cover}
+.staff-bio{flex:1}
+.staff-bio h2{margin-top:0;font-family: 'Merriweather', Georgia, serif}
+.staff-bio p{color:var(--muted); line-height:1.5}
+
+/* Collections / gallery */
+.collections{max-width:1100px;margin:32px auto;padding:0 18px}
+.collection-nav ul{list-style: none; padding:0; display:flex; gap:12px}
+.collection-nav a{color:var(--accent-dark); text-decoration:none; font-weight:700}
+.collection-gallery,
+.histories {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.collection-gallery[hidden],
+.histories[hidden] {
+  display: none;
+  opacity: 0;
+}
+
+.collection-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+.collection-item{background:var(--card); padding:12px; border-radius:8px; border:1px solid var(--stone); box-shadow:0 10px 26px var(--shadow)}
+.collection-item img{width:100%; height:200px; object-fit:cover; border-radius:6px}
+.collection-item p{margin:8px 0 0 0; color:var(--muted); font-size:0.95rem}
+
+/* Artifact card variant */
+.artifact-card{display:flex; gap:12px; align-items:flex-start}
+.artifact-thumb{width:140px; height:120px; object-fit:cover; border-radius:6px; border:1px solid var(--stone)}
+.artifact-meta{flex:1}
+.artifact-meta h4{margin:0 0 6px 0; font-family: 'Merriweather', Georgia, serif}
+.artifact-meta .meta{font-size:0.9rem; color:var(--muted)}
+
+/* footer */
+.bottombar{
+  background: linear-gradient(180deg, rgba(139,94,60,0.04), rgba(0,0,0,0.02));
+  padding:22px;
+  text-align:center;
+  margin-top:36px;
+  border-top:1px solid rgba(0,0,0,0.04);
+  font-size:0.95rem;
+  color:var(--muted);
+}
+
+/* Collections page specific styles */
+.click-instruction {
+  text-align: center;
+  color: var(--muted);
+  margin: 20px 0;
+  font-style: italic;
+}
+
+.collection-item img {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.collection-item img:hover {
+  transform: scale(1.02);
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--card);
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  border: 1px solid var(--stone);
+}
+
+.modal-footer {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid var(--stone);
+  text-align: center;
+}
+
+.view-history {
+  display: inline-block;
+  padding: 8px 16px;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.view-history:hover {
+  background: var(--accent-dark);
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--accent-dark);
+}
+
+/* Histories section styles */
+.histories {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.history-progress {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  position: relative;
+}
+
+.history-progress::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  right: 40px;
+  height: 2px;
+  background: var(--stone);
+  z-index: 1;
+}
+
+.progress-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.progress-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 2px solid var(--stone);
+  transition: all 0.3s ease;
+}
+
+.progress-item.active .progress-dot {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.2);
+}
+
+.progress-item span {
+  font-size: 0.9em;
+  color: var(--muted);
+  text-align: center;
+  max-width: 100px;
+}
+
+.progress-item.active span {
+  color: var(--accent-dark);
+  font-weight: 500;
+}
+
+.history-item {
+  margin-bottom: 60px;
+  padding: 30px;
+  background: var(--card);
+  border-radius: 8px;
+  border: 1px solid var(--stone);
+}
+
+.history-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.history-facts {
+  color: var(--muted);
+  margin: 20px 0;
+}
+
+.history-text p {
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+.cautionary-note {
+  background: rgba(139,94,60,0.1);
+  padding: 15px;
+  border-radius: 6px;
+  margin: 20px 0;
+}
+
+.courtesy-note {
+  font-style: italic;
+  color: var(--muted);
+  margin-top: 30px;
+}
+
+.back-to-collection {
+  display: inline-block;
+  margin-top: 30px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* small utilities */
+.muted{color:var(--muted)}
+
+/* responsive */
+@media (max-width:900px){
+  .three-cols{flex-direction:column;padding:14px}
+  .staff-row{flex-direction:column}
+  .staff-row.alt{flex-direction:column}
+  .staff-photo{width:100%;max-width:100%}
+  .hero h2{font-size:1.5rem}
+}
